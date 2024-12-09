@@ -1,6 +1,6 @@
 package models;
 
-import Materia.Models.NodeGenerico;
+import materia.models.NodeGenerico;
 
 public class LinkedList <T>{
 
