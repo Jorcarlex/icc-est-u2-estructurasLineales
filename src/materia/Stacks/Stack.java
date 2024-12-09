@@ -24,7 +24,7 @@ public class Stack {
         if (isEmpty()) {
             throw new EmptyStackException();
         }
-        int value = top.getValor();
+        int value = top.getValue();
         top = top.getNext();
         return value;
     }
@@ -34,7 +34,7 @@ public class Stack {
         if (isEmpty()) {
             throw new EmptyStackException();
         }
-        return top.getValor();
+        return top.getValue();
     }
 
     // Método para verificar si la pila está vacía
@@ -46,7 +46,7 @@ public class Stack {
     public void printStack() {
         Node current = top;
         while (current != null) {
-            System.out.println(current.getValor());
+            System.out.println(current.getValue());
             current = current.getNext();
         }
     }
