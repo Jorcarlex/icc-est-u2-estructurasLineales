@@ -77,6 +77,10 @@ public class App {
     }
 
     */
+
+    public static void main(String[] args) {
+        runContactManeger();
+    }
     public static void runContactManeger (){
         MenuController menuController = new MenuController();
         menuController.showMenu();

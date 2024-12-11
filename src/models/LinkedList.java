@@ -21,29 +21,27 @@ public class LinkedList <T>{
         size++;
     }
 
-    public void findByValue(T value){
-
-    }
 
     public void print(){
-        if (head == null) {
-            System.out.println("END");
-            return; //Hace que salga del metodo
-        }
         NodeGenerico<T>current = head;
-        while (current.getNext()!=null) {
-            System.out.println(current.getValue() + "->");
+        while (current !=null) {
+            System.out.println(current.getValue() );
             current = current.getNext();
         }
-        System.out.println("END");
     }
-
 
     //Constructor
     public LinkedList(NodeGenerico<T> head, int size) {
         this.head = head;
         this.size = size;
     }
+
+    public LinkedList() {
+        this.head = null;
+        this.size = 0;
+    }
+    
+    
     public NodeGenerico<T> getHead() {
         return head;
     }

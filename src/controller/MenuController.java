@@ -14,7 +14,7 @@ public class MenuController {
 
     public void showMenu() {
         boolean exit = false;
-        while (exit) {
+        while (!exit) {
             consolaView.displayMenu();
             String option = consolaView.getInput("");
             switch (option) {
@@ -22,13 +22,13 @@ public class MenuController {
                     addcontact();
                     break;
                 case "2":
-                    findContact();
+                    findContactByName();
                     break;
                 case "3":
-                    deleteContact();
+                    deleteContactByName();
                     break;
                 case "4":
-                    printContact();
+                    printList();
                     break;
                 case "5":
                     exit = true;
@@ -41,19 +41,26 @@ public class MenuController {
         }
     }
 
-    private void printContact() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'printContact'");
+    private void printList() {
+        consolaView.showMessage("Contact list");
+        contactManager.printList(); // Delegar la impresión al ContactManager
     }
 
-    private void deleteContact() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteContact'");
+    private void deleteContactByName() {
+        String name = consolaView.getInput("Enter a name to delete:  ");
+        contactManager.deleteContactByName(name);
+        consolaView.showMessage("Contact deleted if it exixted");
     }
 
-    private void findContact() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findContact'");
+    private void findContactByName() {
+        String name = consolaView.getInput("Enter name to search");
+        Contact<?, ?> contact = contactManager.findContactByNme(name);
+
+        if (contact != null) {
+            consolaView.showMessage("Contact found "+contact);
+        }else{
+            consolaView.showMessage("Contact not foud 404");
+        }
     }
 
     private void addcontact() {

@@ -21,5 +21,9 @@ public class Contact<T, U> {
     public void setPhone(U phone) {
         this.phone = phone;
     }
+    @Override
+    public String toString() {
+        return "Contact [name=" + name + ", phone=" + phone + "]";
+    }
     
 }
